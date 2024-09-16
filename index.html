@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Jam Gabut</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: arial;
+      font-weight: bold;
+      background: #f4f2f2;
+      display: flex;
+      padding: 10px;
+      justify-content: center;
+      color: black;
+      background-repeat: no-repeat;
+    }
+    
+    main {
+      background: #eeeeee;
+      padding: 30px;
+      margin-top: 30px;
+      padding-bottom: 200px;
+      height: 200px;
+      box-shadow: 1.5px 1.3px 3px 0px inset #a9a9a9;
+      border-radius: 20px;
+      text-align: center;
+    }
+    
+    main .container {
+      text-align: center;
+    }
+    
+    main .container h2 {
+      opacity: 0.7;
+    }
+    
+    main .container .head {
+      background: #f8f6f6e5;
+      padding: 5px;
+      width: 200px;
+      border-radius: 10px;
+      box-shadow: 1.5px 1.3px 0.5px 0px #a9a9a9;
+    }
+    
+    main .container .card {
+      margin-top: 13%;
+      font-size: 20px;
+    }
+    
+    main .container .card span {
+      background: #f8f6f6e5;
+      box-shadow: 1.5px 1.6px 3px 0.5px #c3c3c3;
+      padding: 10px;
+      margin: 10px;
+      border-radius: 10px;
+    }
+    
+    main .container .card #jam {
+      animation: ganti1 1s linear infinite;
+    }
+    main .container .card #menit {
+      animation: ganti2 1s linear infinite;
+    }
+    main .container .card #detik {
+      animation: ganti3 1s linear infinite;
+    }
+    
+    main .container .hari i {
+      position: relative;
+      bottom: 65px;
+      opacity: 0.5;
+      font-weight: italic;
+      font-size: 10px;
+    }
+    
+    main .container .card .text b {
+      position: relative;
+      font-size: 8px;
+      margin: 23px;
+      top: 5px;
+      bottom: 10px;
+      opacity: 0.5;
+    }
+    
+    main .container .card .text b:nth-child(1) {
+      position: relative;
+      left: 2px;
+    }
+    
+    main .container .card .text b:nth-child(2) {
+      position: relative;
+      left: 1px;
+    }
+    
+    main .container .card .text b:nth-child(3) {
+      position: relative;
+      right: 2px;
+    }
+    main .cpn h3 {
+      position: relative;
+      opacity: 0.5;
+      top: 20px;
+      font-size: 15px;
+      font-weight: italic;
+    }
+    
+    footer {
+      opacity: 0.5;
+      position: absolute;
+      bottom: 10px;
+      margin: 5px;
+    }
+    
+    canvas {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      top: 260px;
+      box-shadow: 0px 0px 5px 0px #a9a9a9;
+      background: #eeeeee;
+      border-radius: 50%;
+    }
+  
+    @keyframes ganti1 {
+      0% {
+      box-shadow: 1.5px 1.6px 3px 0.5px red;
+      }
+      25% {
+      box-shadow: 1.5px 1.6px 3px 0.5px cyan;
+      }
+      50% { 
+      box-shadow: 1.5px 1.6px 3px 0.5px  black;
+      }
+      75% {
+      box-shadow: 1.5px 1.6px 3px 0.5px  blue;
+      }
+      100% {
+        box-shadow: 1.5px 1.6px 3px 0.5px red;
+      }
+    }
+    @keyframes ganti2 {
+      0% {
+      box-shadow: 1.5px 1.6px 3px 0.5px cyan;
+      }
+      25% {
+      box-shadow: 1.5px 1.6px 3px 0.5px  black;
+      }
+      50% { 
+      box-shadow: 1.5px 1.6px 3px 0.5px blue;
+      }
+      75% {
+      box-shadow: 1.5px 1.6px 3px 0.5px  red;
+      }
+      100% {
+        box-shadow: 1.5px 1.6px 3px 0.5px cyan;
+      }
+    }
+    @keyframes ganti3 {
+      0% {
+      box-shadow: 1.5px 1.6px 3px 0.5px black;
+      }
+      25% {
+      box-shadow: 1.5px 1.6px 3px 0.5px  blue;
+      }
+      50% { 
+      box-shadow: 1.5px 1.6px 3px 0.5px  red;
+      }
+      75% {
+      box-shadow: 1.5px 1.6px 3px 0.5px  cyan;
+      }
+      100% {
+        box-shadow: 1.5px 1.6px 3px 0.5px black;
+      }
+    }
+    
+  </style>
+</head>
+<body>
+  
+  <main>
+  
+  <div class="container">
+    <div class="head">
+      <h2></h2>
+    </div>
+    <div class="card">
+      <div class="text">
+        <b>Jam</b>
+        <b>Menit</b>
+        <b>Detik</b>
+      </div>
+      <span id="jam"></span>
+      <span id="menit"></span>
+      <span id="detik"></span>
+    </div>
+    <div class="hari">
+     <i><span id="hari"></span></i>
+    </div>
+  </div>
+  <div class="cpn">
+    <h3 id="ucapan"></h3>
+  </div>
+  </main>
+  <footer>
+    <h4>&copy; <span class="tahun">2024</span> OLEH ROMLI SUHANDA</h4>
+  </footer>
+  
+  <canvas height="100px" width="100px" id="_coolclock_auto_id_0" class="CoolClock:swissRail"></canvas>
+
+  <script>
+  // MENAMPILKAN KAN JAM
+  
+    function MunculKosong(nol) {
+      if (nol < 10) {
+        nol = "0" + nol
+      }
+      return nol;
+    }
+    
+    function waktu() {
+      const jam = document.getElementById("jam");
+      const menit = document.getElementById("menit");
+      const detik = document.getElementById("detik");
+      const h2 = document.querySelector("h2");
+      
+      // Jam nya
+      const date = new Date();
+      let j = MunculKosong(date.getHours());
+      let m = MunculKosong(date.getMinutes());
+      let d = MunculKosong(date.getSeconds());
+      
+      
+      jam.innerHTML = j;
+      menit.innerHTML = m;
+      detik.innerHTML = d;
+      
+      // HEADER
+      h2.innerHTML = "JAM WIB";
+      
+      // Ucapan
+      const ucpn = document.getElementById("ucapan");
+      if (j > 1) {
+        ucpn.innerHTML = "Selamat Dini Hari 🌕";
+      }
+      if (j > 4) {
+        ucpn.innerHTML = "Selamat Pagi 🌇";
+      }
+      if (j > 10) {
+        ucpn.innerHTML = "Selamat Siang 🌞";
+      }
+      if (j > 14) {
+        ucpn.innerHTML = "Selamat Sore 🌇";
+      }
+      if (j > 19) {
+        ucpn.innerHTML = "Selamat Malam 🌚";
+      }
+      
+      setInterval(waktu, 1000);
+    }
+    waktu();
+    
+    // MENAMPILKAN TANGGAL BULAN TAHUN
+    function munculTggl() {
+      const hari = document.getElementById("hari");
+    //  const tahun = document.getElementByClassName("tahun");
+      var months = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+			var myDays = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jum&#39;at', 'Sabtu'];
+			var date = new Date();
+			var day = date.getDate();
+			var month = date.getMonth();
+			var thisDay = date.getDay(),
+			    thisDay = myDays[thisDay];
+			var yy = date.getYear();
+			var year = (yy < 1000) ? yy + 1900 : yy;
+			hari.innerHTML = thisDay + ', ' + day + ' ' + months[month] + ' ' + year;
+      // tahun.innerHTML = year;
+    }
+    munculTggl();
+  </script>
+  
+  
+  <script type="text/javascript" src="jquery.js"></script>
+  <script type="text/javascript" src="moreskins.js"></script>
+  <script type="text/javascript" src="coolclock.js"></script>
+  <script type="text/javascript" src="excanvas.js"></script>
+</body>
+</html>
